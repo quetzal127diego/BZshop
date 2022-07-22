@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../3C/BootStraps/css/bootstrap.min.css">
+    <title>Producto</title>
+    <style>
+        div.cont{
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin:auto;
+            margin-top: 20px;
+            width: 100%;
+
+        }
+        .contenedor{
+            font-size: 25px;
+        }
+        div.tamaño{
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background-color:#201E1E;
+            color: white;
+        }
+        div.cont_colr{
+            padding-left: 30px;
+        }
+        .colr{
+            font-size: 25px;
+            padding-left: 8px;
+            padding-right: 8px;
+            color: black;
+            border: solid;
+            border-color:rgb(51, 51, 51);
+            background-color: #FFF383;
+            display: inline;
+            margin-left: 6px;
+        }
+        .espacio{
+            margin-top: 20px;
+        }
+        .descripcion {
+            border: solid;
+            border-radius: 20px;
+            padding: 10px;
+            margin-top: 5%;
+            width: 70%;
+        }
+        .grid1{
+            display: grid;
+            grid-template-columns: 700px 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--IMG DEL PRODUCTO-->
+            <div class="row">
+                <div class="col tamaño ">
+                    <img src="../3C/Proyecto/imgprueba/conjunto1.jpg" alt="" width="650px">
+                </div>
+                <div class="col espacio contenedor">
+                    <p>NOMBRE DEL PROCUCTO </p>   
+                    <br>
+                    <div class="cont_color">
+                        <button type="radio" name="tallas" value="talla1" class="btn btn-outline-dark colr">talla 1</button>
+                        <button type="radio" name="tallas" value="talla2" class="btn btn-outline-dark colr">talla 2</button>
+                        <button type="radio" name="tallas" value="talla2" class="btn btn-outline-dark colr">talla 3</button>
+                    </div>
+                    <div class="espacio" style="margin-left: 10px;">
+                        existencia: 30
+                    </div>
+                    <br>
+                    <div class="cont_color">
+                        <button type="radio" name="color" value="talla1" class="btn btn-outline-dark colr">color 1</button>
+                        <button type="radio" name="color" value="talla1" class="btn btn-outline-dark colr">color 2</button>
+                        <button type="radio" name="color" value="talla1" class="btn btn-outline-dark colr">color 3</button>
+                    </div>
+                    <div class="espacio">
+                        <button type="button" class="btn btn-outline-dark colr">Comprar</button>
+                        <button type="button" class="btn btn-outline-dark colr">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="descripcion">
+                <p> Descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti officiis voluptatibus esse reiciendis quis qui suscipit tenetur saepe! Minus ipsa aperiam, asperiores expedita iusto natus facere minima deserunt sapiente incidunt eligendi laboriosam. Commodi pariatur ut facilis nulla beatae, libero deserunt excepturi voluptas omnis aspernatur sit possimus eum veniam esse. Qui dicta iure facilis ea, molestias incidunt aliquam eum laudantium, maxime tenetur veritatis. Repudiandae dolore sapiente praesentium adipisci perferendis vel expedita consequatur odio blanditiis ad quidem distinctio aliquid debitis, suscipit doloribus! Laboriosam dicta beatae, voluptate unde eaque dolorum aut possimus quibusdam inventore eveniet incidunt numquam sed hic aspernatur itaque rerum odit.</p>
+            </div>
+        <!--INFO PRODUCTO-->
+            
+    </div>
+</body>
+</html>
