@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/boostrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/integradora/nav.css">
+    <script src="/boostrap/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/dfdea5c505.js" crossorigin="anonymous"></script>
+</head>
+
+<!--
+background: linear-gradient(rgb(253, 245, 12 , 0.45), rgb(253, 245, 12 , 0.45));-->
+
+
+<style>
+
+
+div.cuadrorow
+{
+  width: 450px; 
+  margin: auto;
+  text-align: center;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+div.fondo
+{
+
+  background: linear-gradient(rgb(253, 245, 12 , 0.45), rgb(253, 245, 12 , 0.45));
+  border: 3px black solid;
+  border-radius: 10px;
+
+}
+
+button.propio
+{
+  border: 3px black solid;
+  background: linear-gradient(rgb(253, 245, 12 , 0.45), rgb(253, 245, 12 , 0.45));
+  color: black;
+}
+
+table
+{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+input
+{
+  width: 100%;
+  background: linear-gradient(rgba(55, 55, 55, 0.35), rgb(55, 55, 55, 0.35));
+  border: 2px black solid;
+  border-radius: 6px;
+}
+
+button.imagen
+{
+  width: 70%;
+  background-color:rgb(44, 44, 44);
+  color: rgb(246, 246, 53);
+  border: 2px black solid;
+  border-radius: 6px;
+}
+
+div.imagen
+{
+  width: 100%;
+  
+}
+div.inputs
+{
+  width: 100%;
+  margin-left: -8px;
+}
+
+p.TitulosIn
+{
+  font-size: 20px;
+  margin-bottom: -2px;
+}
+
+tr.espacio
+{
+  height: 20px;
+}
+
+div.espaciodiv
+{
+  height: 50px;
+}
+
+button.btnBZ
+{
+  width: 20%;
+  background-color:rgb(44, 44, 44);
+  color: rgb(246, 246, 53);
+  border: 2px black solid;
+  border-radius: 6px;
+  
+}
+
+</style>
+
+<body>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content fondo">
+
+
+    <div class="row cuadrorow">
+      <div class="col-3">
+      <h1>BZshop</h1>
+      </div>
+
+      <div class="col-2 offset-7">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="col-12">
+        <h1>BZ</h1>
+      </div>
+      <center>
+      <form action="login.php" method="post">
+      <table class="tabla">
+        <tbody>
+
+
+              <!--Titulo-->
+          <tr>
+            <td colspan="2">
+              <div><p  class="TitulosIn">Nombre</p></div>
+            </td>
+          </tr>
+          <!--Icono-->
+          <tr>
+            <td>
+              <div class="imagen"><button class="imagen"><i class="fa-thin fa-user-large"></i></button></div>
+            </td>
+          <!--Input-->
+            <td>
+              <div class="inputs"><input class="login" type="text" name="Nombre_U" placeholder="Escriba su nombre"></div>
+            </td>
+          </tr>
+
+          <tr class="espacio"></tr>
+
+          <!--Titulo-->
+          <tr>
+            <td colspan="2">
+              <div><p  class="TitulosIn">Apellido</p></div>
+            </td>
+          </tr>
+
+          <!--Icono-->
+          <tr>
+            <td>
+              <div class="imagen"><button class="imagen"><i class="fa-thin fa-user-large"></i></button></div>
+            </td>
+          <!--Input-->
+            <td>
+              <div class="inputs"><input class="login" name="Apellido_U" type="text" placeholder="Escriba su apellido"></div>
+            </td>
+          </tr>
+
+          <tr class="espacio"></tr>
+
+          <!--Titulo-->
+          <tr>
+            <td colspan="2">
+              <div><p  class="TitulosIn">Correo</p></div>
+            </td>
+          </tr>
+
+          <!--Icono-->
+          <tr>
+            <td>
+              <div class="imagen"><button class="imagen"><i class="fa-thin fa-user-large"></i></button></div>
+            </td>
+          <!--Input-->
+            <td>
+              <div class="inputs"><input class="login" name="Correo_U" type="email" placeholder="Escriba su Correo"></div>
+            </td>
+          </tr>
+
+          <tr class="espacio"></tr>
+
+          <!--Titulo-->
+          <tr>
+            <td colspan="2">
+              <div><p  class="TitulosIn">Contrase&ntilde;a</p></div>
+            </td>
+          </tr>
+
+          <!--Icono-->
+          <tr>
+            <td>
+              <div class="imagen"><button class="imagen"><i class="fa-thin fa-user-large"></i></button></div>
+            </td>
+          <!--Input-->
+            <td>
+              <div class="inputs"><input class="login" name="Contra_U" type="password" placeholder="Escriba su contraseña"></div>
+            </td>
+          </tr>
+
+          <tr class="espacio"></tr>
+
+          <!--Titulo-->
+          <tr>
+            <td colspan="2">
+              <div><p  class="TitulosIn">Telefono</p></div>
+            </td>
+          </tr>
+
+          <!--Icono-->
+          <tr>
+            <td>
+              <div class="imagen"><button class="imagen"><i class="fa-thin fa-user-large"></i></button></div>
+            </td>
+          <!--Input-->
+            <td>
+              <div class="inputs"><input class="login" name="Telefono_U" type="text" placeholder="Escriba su telefono"></div>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </form>
+    </center>
+      <div class="espaciodiv"></div>  
+      <div class="col-12">
+        <button type="button" class="btn btnBZ" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btnBZ">Enviar</button>
+      </div>
+        
+  
+  
+   
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+<!--Modal header
+    <div class="modal-header">
+      <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+     Modal header-->
+
+
+
+     <!--modal body
+    <div class="modal-body">
+      Contenido
+    </div>
+     modal body-->
+
+
+      <!--modal footer
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Understood</button>
+    </div>
+    modal footer-->

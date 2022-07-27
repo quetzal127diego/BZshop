@@ -1,4 +1,365 @@
-hola css
-puse un hola ickkck
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Montserrat Alternates', sans-serif;
+	}
+	body{
+		background-color: #201E1E;
+		background-size: 100vw 100vh;
+		background-repeat: no-repeat;
+	}
+	.capa{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: rgba(0,0,0,0.6);
+		z-index: -1;
+		top: 0;left: 0;
+	}
+	/*Estilos para el encabezado*/
+	.header{
+		width: 100%;
+		height: 100px;
+		position: fixed;
+		top: 0;left: 0;
+	}
+	.container{
+		width: 90%;
+		max-width: 1200px;
+		margin: auto;
+	}
+	.container .btn-menu, .logo{
+		float: left;
+		line-height:100px;
+	}
+	.container .btn-menu label{
+		color: #fff;
+		font-size: 25px;
+		cursor: pointer;
+	}
+	.logo h1{
+		color: #fff;
+		font-weight: 400;
+		font-size: 22px;
+		margin-left: 10px;
+	}
+	.container .menu{
+		float: right;
+		line-height: 100px;
+	}
+	.container .menu a{
+		display: inline-block;
+		padding: 15px;
+		line-height: normal;
+		text-decoration: none;
+		color: #fff;
+		transition: all 0.3s ease;
+		border-bottom: 2px solid transparent;
+		font-size: 15px;
+		margin-right: 5px;
+	}
+	.container .menu a:hover{
+		border-bottom: 2px solid #c7c7c7;
+		padding-bottom: 5px;
+	}
+	/*Fin de Estilos para el encabezado*/
 
-hola agrego css 2
+	/*Menù lateral*/
+	#btn-menu{
+		display: none;
+	}
+	.container-menu{
+		position: absolute;
+		background: rgba(0,0,0,0.5);
+		width: 100%;
+		height: 100vh;
+		top: 0;left: 0;
+		transition: all 500ms ease;
+		opacity: 0;
+		visibility: hidden;
+	}
+	#btn-menu:checked ~ .container-menu{
+		opacity: 1;
+		visibility: visible;
+	}
+	.cont-menu{
+		width: 100%;
+		max-width: 250px;
+		background: #FFF383;
+		height: 100vh;
+		position: relative;
+		transition: all 500ms ease;
+		transform: translateX(-100%);
+	}
+	#btn-menu:checked ~ .container-menu .cont-menu{
+		transform: translateX(0%);
+	}
+	.cont-menu nav{
+		transform: translateY(15%);
+	}
+	.cont-menu nav a{
+		display: block;
+		text-decoration: none;
+		padding: 20px;
+		color: #000000;
+		border-left: 5px solid transparent;
+		transition: all 400ms ease;
+	}
+	.cont-menu nav a:hover{
+		border-left: 5px solid #c7c7c7;
+		background: #f1f1f1;
+	}
+    .cont-menu h3 {
+        margin-left: 20px;
+    }
+	.cont-menu label{
+		position: absolute;
+		right: 5px;
+		top: 10px;
+		color: #fff;
+		cursor: pointer;
+		font-size: 18px;
+	}
+
+	/*LOGIN*/
+	.bodylogin
+	{
+		background-color:#201E1E;
+	}
+
+	.login-box {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 400px;
+		padding: 40px;
+		transform: translate(-50%, -50%);
+		background: rgb(255, 243, 131);
+		box-sizing: border-box;
+		box-shadow: 0 15px 25px  rgb(255, 243, 130);
+		border-radius: 10px;
+	  }
+	  
+	  .login-box h2 {
+		margin: 0 0 30px;
+		padding: 0;
+		color: #201e1e;
+		text-align: center;
+	  }
+	  
+	  .login-box .user-box {
+		position: relative;
+	  }
+	  
+	  .login-box .user-box input {
+		width: 100%;
+		padding: 10px 0;
+		font-size: 16px;
+		color: #201e1e;
+		margin-bottom: 30px;
+		border: none;
+		border-bottom: 1px solid #201e1e;
+		outline: none;
+		background: transparent;
+	  }
+	  .login-box .user-box label {
+		position: absolute;
+		top:0;
+		left: 0;
+		padding: 10px 0;
+		font-size: 16px;
+		color: #201e1e;
+		pointer-events: none;
+		transition: .5s;
+	  }
+	  
+	  .login-box .user-box input:focus ~ label,
+	  .login-box .user-box input:valid ~ label {
+		top: -20px;
+		left: 0;
+		color: #201e1e;
+		font-size: 12px;
+	  }
+	  
+	  .login-box form a {
+		position: relative;
+		display: inline-block;
+		padding: 10px 20px;
+		color: #201e1e;
+		font-size: 16px;
+		text-decoration: none;
+		text-transform: uppercase;
+		overflow: hidden;
+		transition: .5s;
+		margin-top: 40px;
+		letter-spacing: 4px
+	  }
+	  
+	  .login-box a:hover {
+		background: #201e1e;
+		color:rgb(255, 243, 131);
+		border-radius: 5px;
+		box-shadow: 0 0 5px #201e1e,
+					0 0 25px #201e1e,
+					0 0 50px #201e1e,
+					0 0 100px #201e1e;
+	  }
+	  
+	  .login-box a span {
+		position: absolute;
+		display: block;
+	  }
+	  
+	  .login-box a span:nth-child(1) {
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(90deg, transparent, #201e1e);
+		animation: btn-anim1 1s linear infinite;
+	  }
+	  
+	  @keyframes btn-anim1 {
+		0% {
+		  left: -100%;
+		}
+		50%,100% {
+		  left: 100%;
+		}
+	  }
+	  
+	  .login-box a span:nth-child(2) {
+		top: -100%;
+		right: 0;
+		width: 2px;
+		height: 100%;
+		background: linear-gradient(180deg, transparent, #FFF383);
+		animation: btn-anim2 1s linear infinite;
+		animation-delay: .25s
+	  }
+	  
+	  @keyframes btn-anim2 {
+		0% {
+		  top: -100%;
+		}
+		50%,100% {
+		  top: 100%;
+		}
+	  }
+	  
+	  .login-box a span:nth-child(3) {
+		bottom: 0;
+		right: -100%;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(270deg, transparent, #FFF383);
+		animation: btn-anim3 1s linear infinite;
+		animation-delay: .5s
+	  }
+	  
+	  @keyframes btn-anim3 {
+		0% {
+		  right: -100%;
+		}
+		50%,100% {
+		  right: 100%;
+		}
+	  }
+	  
+	  .login-box a span:nth-child(4) {
+		bottom: -100%;
+		left: 0;
+		width: 2px;
+		height: 100%;
+		background: linear-gradient(360deg, transparent, #FFF383);
+		animation: btn-anim4 1s linear infinite;
+		animation-delay: .75s
+	  }
+	  
+	  @keyframes btn-anim4 {
+		0% {
+		  bottom: -100%;
+		}
+		50%,100% {
+		  bottom: 100%;
+		}
+	  }
+	  
+	  #imagenLOGO
+	  {
+		width: 100px;
+		height: 100px;
+	  }
+/*LOGIN*/
+
+
+	/*CAROUSEL*/
+			
+	div.carouselBZ
+	{
+		margin-top: 200px;
+	}
+	.contenedor
+	{
+		border-radius: 10px;
+		border: 3px #FFF383 solid;
+		width: 50%;
+		height: 50%;
+	}
+	
+		#kiko-slider > ul, li {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			
+				
+		}
+		
+		#kiko-slider > ul.slider{
+		position: relative;
+		max-width: 800px;
+		width: 100%;
+		height: 300px;
+		}
+		
+		#kiko-slider > ul.slider h1{
+		position: absolute;
+		background-color: rgba(255, 255, 255, 0.6);
+		padding: 10px;
+		border-radius: 10px;
+		left: 50%;
+		top: 100px;
+		transform: translate(-50%, -50%);
+		}
+		
+		#kiko-slider > ul.slider li {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			opacity: 0;
+			width: inherit;
+			height: inherit;
+			transition: opacity .5s;
+			background:#fff;
+		}
+		
+		img
+		{
+			margin: auto;
+			width: 100%;
+			height: 100%;
+			border-radius: 10px;
+		}
+
+		#kiko-slider > ul.slider li img{
+		width: 100%;
+		height: 300px;
+		object-fit: cover;
+		}
+		
+		#kiko-slider > ul.slider li:first-child {
+			opacity: 1; /*Mostramos el primer <li>*/
+		}
+ 
