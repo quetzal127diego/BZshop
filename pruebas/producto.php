@@ -9,12 +9,22 @@
     <title>Producto</title>
 </head>
 <body>
+<<<<<<< HEAD
     <div>
         <div>
             <?php 
                 include('nav.html')
             ?>
         </div>
+=======
+             <?php 
+                include('nav.html')
+            ?>
+    <div>
+    
+           
+        
+>>>>>>> refs/remotes/origin/main
             <div class="cont row">
                 <!--Imagen del producto-->
                 <div class="cont1 col-4">
