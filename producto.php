@@ -9,12 +9,13 @@
     <title>Producto</title>
 </head>
 <body>
-    <div>
-        <div>
-            <?php 
+             <?php 
                 include('nav.html')
             ?>
-        </div>
+    <div>
+    
+           
+        
             <div class="cont row">
                 <!--Imagen del producto-->
                 <div class="cont1 col-4">
