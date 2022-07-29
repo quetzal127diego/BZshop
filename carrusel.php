@@ -9,7 +9,9 @@
     
     <style>
 		.tamaño{
-			width:500px;
+			width:1000px;
+			
+			
 		}
 	</style>
     
@@ -25,6 +27,7 @@
 	<br>
 	<br>
 	<br>
+	<center>
 <div id="carouselExampleCaptions" class="carousel slide tamaño" data-bs-ride="false">
 	<div class="carousel-indicators">
 	  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -33,24 +36,24 @@
 	</div>
 	<div class="carousel-inner">
 	  <div class="carousel-item active">
-		<img src="../BZshop/BZLOGO.png" class="d-block w-100" alt="...">
+		<img src="../BZshop/imagenes/BZshop.jpeg" class="style="width: 50% >
 		<div class="carousel-caption d-none d-md-block">
-		  <h5>First slide label</h5>
-		  <p>Some representative placeholder content for the first slide.</p>
+		  <h5>esto es BZshop</h5>
+		  <p>somos la mejor tienda de ropa</p>
 		</div>
 	  </div>
 	  <div class="carousel-item">
-		<img src="../BZshop/20220722_013633_0000.png" class="d-block w-100" alt="...">
+		<img src="../BZshop/imagenes/clothes-apparel-big-sale-banner-for-facebook-design-template-32dffcab7597606310e4cbedfef0ef73_screen.jpg" class="style="width: 100% >
 		<div class="carousel-caption d-none d-md-block">
-		  <h5>Second slide label</h5>
-		  <p>Some representative placeholder content for the second slide.</p>
+		  <h5>promociones</h5>
+		  <p>ven con nosotros a comprar</p>
 		</div>
 	  </div>
 	  <div class="carousel-item">
-		<img src="../BZshop/20220722_014740_0000.png" class="d-block w-100" alt="...">
+		<img src="../BZshop/imagenes/52.png" class="d-block w-100" alt="...">
 		<div class="carousel-caption d-none d-md-block">
-		  <h5>Third slide label</h5>
-		  <p>Some representative placeholder content for the third slide.</p>
+		  <h5>moda de invierno y negro</h5>
+		  <p>la mejoores ofertas</p>
 		</div>
 	  </div>
 	</div>
@@ -62,7 +65,9 @@
 	  <span class="carousel-control-next-icon" aria-hidden="true"></span>
 	  <span class="visually-hidden">Next</span>
 	</button>
+
   </div>
+  </center> 
   <script src="../BZshop/js/bootstrap.min.js"></script>
 </body>
 </html>
