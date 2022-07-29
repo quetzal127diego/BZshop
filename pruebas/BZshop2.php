@@ -19,8 +19,7 @@
 <body>
     <div>
         <?php 
-		include ('nav.html')
-		
+		include ('navbienvenida.html')
 		?>
     </div>
 	<br>
