@@ -362,4 +362,20 @@
 		#kiko-slider > ul.slider li:first-child {
 			opacity: 1; /*Mostramos el primer <li>*/
 		}
+
+
+		/*Contactanos*/
+		#contactanos
+		{
+			text-align: center;
+			font-family: fontAwesome;
+			width: 30%;
+			margin: auto;
+			font-size: 20px;
+			margin-top: auto;
+			padding: auto;
+			color: white;
+		}
+
+
  
