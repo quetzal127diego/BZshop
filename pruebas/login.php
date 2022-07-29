@@ -7,7 +7,6 @@ $telefono = $_POST['Telefono_U'];
 
 
 /*Si esta vacio el input*/
-if()
 
 
 
