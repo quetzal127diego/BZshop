@@ -12,7 +12,7 @@ class Select
     {
         try
         {
-            $cc=new Database("bzshop","admin","administrador");
+            $cc=new Database("bzshop","root","");
             $objetoPDO=$cc->getPDO();
             $resultado=$objetoPDO->query($qry);
             $fila=$resultado->fetchAll(PDO::FETCH_OBJ);

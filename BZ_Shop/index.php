@@ -65,11 +65,11 @@
           <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="views/FormLogin.php">Login</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Login</a>
         </li>
         <?php 
               use MyApp\Query\Select;
-              require("vendor\autoload.php");
+              require("../BZ_Shop/vendor/autoload.php");
               $queryS=new Select();
               $cadena="SELECT categoria_prenda.cve_pcat,categoria_prenda.prenda from categoria_prenda";
               $reg=$queryS->seleccionar($cadena);
@@ -95,6 +95,7 @@
             <li><a class="dropdown-item clr-blanco" href="#">Registros de Venta</a></li>
             <li><a class="dropdown-item clr-blanco" href="#">Ordenes</a></li>
             <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item clr-blanco" href="#">Caca</a></li>
           </ul>
         </li>
       </ul>
@@ -105,12 +106,39 @@
     </div>
   </div>
 </nav>
-<br><br>
-     </div>
-  </div>
- </div>
+    <?php
+      $query = new Select();
 
-    <!-- Bootstrap JavaScript Libraries -->
+      $cadena = "SELECT imagen,nombre,precio,exitencia,categoria FROM productos";
+
+      $card = $query->seleccionar($cadena);
+
+      foreach($card as $registros)
+              {
+                echo "<div class='col-lg-4 col-md-6 col-sm-12'>
+                    <div class='row'>
+
+                    <div class='row col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+
+                      <div class='card col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4'>
+                        <div class='card-block sizeimg'>
+                          <h4 class='card-title'>$registros->nombre</h4>";
+                          echo "<img class='sizeimg' src='views/scripts/$registros->imagen'>";
+                          echo "<p class='card-text'> $registros->precio </p>";
+                          echo "<p class='card-text'> $registros->exitencia</p>";
+                          echo "<p class='card-text'> $registros->categoria </p>";
+                          echo " <a href='' class='btn btn-success'>Button</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>";      
+              }
+    ?>
+            
+
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
