@@ -68,8 +68,8 @@
             
             $query = new Select();
 
-            $cadena = "SELECT 
-              imagenes.link,
+            $cadena = "SELECT
+              productos.imagen,
               productos.cve_prod,
               productos.nombre,
               productos.precio,
@@ -80,7 +80,6 @@
               categoria_prenda.prenda,
               genero.genero
               FROM productos
-              INNER JOIN imagenes ON productos.imagen = imagenes.cve_img
               INNER JOIN categoria ON productos.categoria = categoria.cve_cat
               INNER JOIN categoria_prenda ON productos.categoria_prenda = categoria_prenda.cve_pcat
               INNER JOIN genero ON productos.genero = genero.cve_gen";
@@ -110,7 +109,7 @@
               {
                 echo "<tr>";
                 echo "<td> $registros->cve_prod</td>";
-                echo "<td> $registros->link </td>";
+                echo "<td> $registros->imagen </td>";
                 echo "<td> $registros->nombre </td>";
                 echo "<td> $registros->precio </td>";
                 echo "<td> $registros->exitencia </td>";
@@ -119,7 +118,7 @@
                 echo "<td> $registros->nom_cat </td>";
                 echo "<td> $registros->prenda</td>";
                 echo "<td> $registros->genero </td>";
-                echo " <td><a href='ModPro.php?id=$registros->cve_prod' class='list-group-item list-group-item-action flex-column align-items-start'>
+                echo " <td><a href='EstasModificando.php?id=$registros->cve_prod' class='list-group-item list-group-item-action flex-column align-items-start'>
                       <small><img src='../src/img/editar.png' alt='' width='20px'></small>
                       </a>";
               echo "</td>

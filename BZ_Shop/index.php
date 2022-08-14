@@ -65,7 +65,7 @@
           <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Login</a>
+          <a class="nav-link active" aria-current="page" href="views/FormLogin.php">Login</a>
         </li>
         <?php 
               use MyApp\Query\Select;
@@ -95,7 +95,6 @@
             <li><a class="dropdown-item clr-blanco" href="#">Registros de Venta</a></li>
             <li><a class="dropdown-item clr-blanco" href="#">Ordenes</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item clr-blanco" href="#">Caca</a></li>
           </ul>
         </li>
       </ul>
