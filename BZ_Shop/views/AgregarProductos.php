@@ -60,8 +60,14 @@
             <div class="container" style="width: 40%;">
                 <br><br>
                 <div class="mb-3">
+                  <h1>Registro del producto</h1><br>
+                  <form action="../views/scripts/GuardarProductos.php" method="POST" enctype="multipart/form-data">
                   <label for="nombre" class="form-label"><strong>Nombre</strong></label>
-                  <input type="text" name="nombre" id="" class="form-control" placeholder="Escribe el nombre del producto aqui">
+                  <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Escribe el nombre del producto aqui">
+                </div>
+                <div class="mb-3">
+                  <label for="color" class="form-label"><strong>Imagen del Producto</strong></label>
+                  <input type="file" name="imagen" id="imagen" class="form-control">
                 </div>
                 <div class="mb-3">
                   <label for="precio" class="form-label"><strong>Precio</strong></label>
@@ -79,6 +85,7 @@
                   <label for="color" class="form-label"><strong>Color</strong></label>
                   <input type="text" name="color" id="" class="form-control" placeholder="Escribe el color del producto aqui">
                 </div>
+                
                <!--Campo con consulta para la categoria -->
                 <?php 
               use MyApp\Query\Select;
@@ -139,12 +146,14 @@
               }
               echo "</select>";
             ?>
-            <br>
-             <div class="mb-3">
-                  <label for="imagen" class="form-label"><strong>Imagen</strong></label>
-                  <input type="file" name="imagen" id="" class="form-control" placeholder="Escribe la imagen del producto aqui">
-                </div>
-                
+           <br>
+                <div class="container-fluid h-100"> 
+    		<div class="row w-100 align-items-center">
+    			<div class="col text-center">
+    				<button class="btn btn-primary regular-button">Guardar</button>
+    			</div>	
+    		</div>
+        </form>
               <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 

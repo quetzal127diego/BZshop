@@ -58,7 +58,7 @@
             <div class="list-group ">
                 <br><br>
                 <hr>
-                <a href="AgregarProductos.php" class="list-group-item list-group-item-action flex-column align-items-start">
+                <a href="../views/AgregarProductos.php" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">Añadir productos</h5>
                         <small><img src="../src/img/moda.png" alt="" width="20px"></small>
@@ -74,6 +74,7 @@
                     <p class="mb-1">Click aqui para modificar productos ya existentes en la tienda</p>
                     <small></small>
                 </a>
+            
             </div>
             <hr>
         </div>
