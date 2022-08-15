@@ -50,6 +50,11 @@
         margin-top: 2px;
 
     }
+    .sizeimg
+    {
+      width:350px;
+      height:350px;
+    }
     </style>
   </head>
   <body>
@@ -115,25 +120,24 @@
 
       foreach($card as $registros)
               {
-                echo "<div class='col-lg-4 col-md-6 col-sm-12'>
-                    <div class='row'>
+                echo "<div class='container mt-3'>
+                        <div class='row'>
 
-                    <div class='row col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+                          <div class='col-12'>
 
-                      <div class='card col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4'>
-                        <div class='card-block sizeimg'>
-                          <h4 class='card-title'>$registros->nombre</h4>";
-                          echo "<img class='sizeimg' src='views/scripts/$registros->imagen'>";
-                          echo "<p class='card-text'> $registros->precio </p>";
-                          echo "<p class='card-text'> $registros->exitencia</p>";
-                          echo "<p class='card-text'> $registros->categoria </p>";
-                          echo " <a href='' class='btn btn-success'>Button</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>";      
+                            <div class='card col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4'>
+                              
+                                <h4 class='card-title'>$registros->nombre</h4>";
+                                  echo "<img class='sizeimg' src='views/scripts/$registros->imagen'>";
+                                  echo "<p class='card-text'> $registros->precio </p>";
+                                  echo "<p class='card-text'> $registros->exitencia</p>";
+                                  echo "<p class='card-text'> $registros->categoria </p>";
+                                  echo " <a href='' class='btn btn-primary'>Ver Producto</a>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>";     
+            
               }
     ?>
             
