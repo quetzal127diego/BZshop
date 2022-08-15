@@ -5,7 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="views/cards.css">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
@@ -22,7 +23,7 @@
         background: -moz-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
         background: -webkit-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
         background: linear-gradient(to bottom, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);;
-		background-size: 1000vw 1000vh;
+		background-size: 100vw 100vh;
 		background-repeat: no-repeat;
 	}
     
@@ -49,16 +50,6 @@
         margin-top: 2px;
 
     }
-    .sizeimg
-    {
-      width:150px;
-      height:150px;
-    }
-    .cont_prod
-    {
-      display: inline-block;
-      width: 90%;
-    }
     </style>
   </head>
   <body>
@@ -73,9 +64,15 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Login</a>
-        </li>
+        <!-- botones del user-->
+        <?php session_start();
+        if(!isset($_SESSION["usuario"]))
+        {
+          echo " <li class='nav-item'>";
+          echo "<a class='nav-link active' aria-current='page' href='index.php'>Login</a>";
+          echo "</li>";
+        }
+        ?>
         <?php 
               use MyApp\Query\Select;
               require("../BZ_Shop/vendor/autoload.php");
@@ -93,22 +90,27 @@
               }
               echo "</select>";
             ?>
-            <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Administrar
-          </a> 
-          <ul class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item clr-blanco" href="views/AdminProd.php">Administrar Productos</a></li>
-            <li><a class="dropdown-item clr-blanco" href="#">Administrar Categorias</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item clr-blanco" href="#">Registros de Venta</a></li>
-            <li><a class="dropdown-item clr-blanco" href="#">Ordenes</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item clr-blanco" href="#">Caca</a></li>
-          </ul>
-        </li>
+
+            <!-- botones del admin-->
+            <?php session_start();
+              if(isset($_SESSION["admin"]))
+              {
+                 echo " <li class='nav-item dropdown'> ";
+                 echo " <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                    Administrar
+                    </a> 
+                    <ul class='dropdown-menu bg-dark ' aria-labelledby='navbarDropdown'>
+                    <li><a class='dropdown-item clr-blanco' href='views/AdminProd.php'>Administrar Productos</a></li>
+                      <li><hr class='dropdown-divider'></li>
+                      <li><a class='dropdown-item clr-blanco' href='views/Ventas.php'>Registros de Venta</a></li>
+                      <li><hr class='dropdown-divider'></li>
+                      <li><a class='dropdown-item clr-blanco' href='views/Clientes.php'>Clientes Registrados</a></li>
+                    </ul>
+                  </li>";
+              } 
+            ?>
+            
       </ul>
-      
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Buscar</button>
@@ -116,41 +118,28 @@
     </div>
   </div>
 </nav>
-    <?php
-      $query = new Select();
-
-      $cadena = "SELECT imagen,nombre,precio,exitencia,categoria FROM productos";
-
-      $card = $query->seleccionar($cadena);
-    ?>
-
-    <div class="title-cards">
-		<h2>Algunos de nuestros Productos</h2>
-	</div>
-  
-  <div class="row">
-  <?php
-  foreach ($card as $registros){
+<!-- inicio del usuario-->
+<?php 
+session_start();
+        if(isset($_SESSION["usuario"]))
+        {
+          echo "<h5 align='center'> Usuario: ".$_SESSION["usuario"]."</h5>";
+          echo "<h6 align='center'> 
+          <a href='/MiProyecto/views/scripts/cerrar.php'>[Cerrar Sesion]</a>
+          </h6>";
+        } 
   ?>
-<div class="container-card col-lg-4">
-<div class="card ">
-	<figure>
-		<?php echo "<img src='views/scripts/$registros->imagen'>";?>
-	</figure>
-	<div class="contenido-card">
-		<h3><?php echo $registros->nombre ?></h3>
-		<p><?php echo $registros->precio?></p>
-    <p><?php echo $registros->exitencia?></p>
-    <p><?php echo $registros->categoria?></p>
-		<a href="#">Leer Màs</a>
-	</div>
-  </div>
-</div>
-<?php } ?>
-</div>
-            
-
-
+  <?php 
+  session_start();
+              if(isset($_SESSION["admin"]))
+              {
+                echo "<h5 align='center'> Usuario: ".$_SESSION["admin"]."</h5>";
+                echo "<h6 align='center'> 
+                <a href='/MiProyecto/views/scripts/cerrar.php'>[Cerrar Sesion]</a>
+                </h6>";
+              } 
+  ?>
+    <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>

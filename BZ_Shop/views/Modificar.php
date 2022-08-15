@@ -33,7 +33,7 @@
         background: -moz-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
         background: -webkit-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
         background: linear-gradient(to bottom, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);;
-		background-size: 10000vw 10000vh;
+		background-size: 100vw 100vh;
 		background-repeat: no-repeat;
     }
     .clr-blanco
@@ -46,95 +46,203 @@
         border-color:black;
         border-radius:5px;
     }
-    .sizeimg
-    {
-      width:100px;
-      height:100px;
-    }
 
     </style>
   </head>
   <body>
+  <?php
+
+use MyApp\Query\Select;
+session_start();
+if (!isset($_SESSION["admin"])) 
+{
+   echo "<div class='alert alert-warning'> 
+   <h2 align='center'> No eres admin, usuario:".$_SESSION["usuario"]."</h2>";
+
+   echo "<h3 algin='center'>
+   <a href='scripts/cerrar.php'>[Cerrar Sesion]</a></h3>
+   </div>";
+   echo "<h3 algin='center'>
+   <a href='../indix.php'>[Inicio]</a></h3>
+   </div>";
+}
+else
+{
+?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
-              <a class="nav-link disabled" href="#">Agregar Productos</a>
+              <a class="nav-link disabled" href="#">Modificar Producto</a>
               <a class="nav-link clr-blanco" href="AdminProd.php">Regresar</a>
               <a class="nav-link clr-blanco" href="../index.php">Inicio</a>
+              
             </nav>
 
             <!-- Tabla select -->
 
-            <div class="containar">
-              <div align="center">              
+              <div class="md-6">              
                 <h1 align="center">Productos actuales</h1>
-                </div>
-                <?php
-            use MyApp\query\Select;
-            require("../vendor/autoload.php");
-            
-            $query = new Select();
+                <br>
+              </div>
+              <form class="d-flex">
+                <button class="btn btn-outline-success" name="refresh" type="submit">Refrescar</button>
+                <input onkeyup="$enviar" class="form-control me-2" name="busqueda" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" name="enviar" type="submit">Buscar</button>
+              </form>
+              <?php
 
-            $cadena = "SELECT
-              productos.imagen,
-              productos.cve_prod,
-              productos.nombre,
-              productos.precio,
-              productos.exitencia,
-              productos.talla,
-              productos.color,
-              categoria.nom_cat,
-              categoria_prenda.prenda,
-              genero.genero
-              FROM productos
-              INNER JOIN categoria ON productos.categoria = categoria.cve_cat
-              INNER JOIN categoria_prenda ON productos.categoria_prenda = categoria_prenda.cve_pcat
-              INNER JOIN genero ON productos.genero = genero.cve_gen";
+                  
+                if (isset($_GET['enviar'])) 
+                {
+                  $busqueda= $_GET['busqueda'];
 
-            $tabla = $query->seleccionar($cadena);
+                  require("../vendor/autoload.php");
+                  
+                  $query = new Select();
 
-            
-            echo "<table class='table table-hover align='left'>
-              <thead class='table-dark'>
-              <tr>
-              <th> ID_Producto</th>
-              <th> Imagen</th>
-              <th> Producto</th>
-              <th> Precio</th>
-              <th> Existencias</th>
-              <th> Talla</th>
-              <th> Color</th>
-              <th> Categoria</th>
-              <th> Tipo_Prenda</th>
-              <th> Genero</th>
-              <th> Modificar</th>
-              </tr>
-              </thead>
-              <tbody>";
+                  $cadena = "SELECT
+                    productos.imagen,
+                    productos.cve_prod,
+                    productos.nombre,
+                    productos.precio,
+                    productos.exitencia,
+                    productos.talla,
+                    productos.color,
+                    categoria.nom_cat,
+                    categoria_prenda.prenda,
+                    genero.genero
+                    FROM productos
+                    INNER JOIN categoria ON productos.categoria = categoria.cve_cat
+                    INNER JOIN categoria_prenda ON productos.categoria_prenda = categoria_prenda.cve_pcat
+                    INNER JOIN genero ON productos.genero = genero.cve_gen WHERE (productos.cve_prod LIKE '%$busqueda%'
+                    OR productos.nombre LIKE '%$busqueda%'
+                    OR productos.precio LIKE '%$busqueda'
+                    OR productos.exitencia LIKE '%$busqueda%'
+                    OR productos.talla LIKE '%$busqueda%'
+                    OR productos.color LIKE '%$busqueda%'
+                    OR productos.nombre LIKE '%$busqueda%'
+                    OR categoria.nom_cat LIKE '%$busqueda%'
+                    OR categoria_prenda.prenda LIKE '%$busqueda%'
+                    OR genero.genero LIKE '%$busqueda%')
+                    ";
 
-              foreach($tabla as $registros)
-              {
-                echo "<tr>";
-                echo "<td> $registros->cve_prod</td>";
-                echo "<td> <img class='sizeimg' src='../views/scripts/$registros->imagen'></td>";
-                echo "<td> $registros->nombre </td>";
-                echo "<td> $registros->precio </td>";
-                echo "<td> $registros->exitencia </td>";
-                echo "<td> $registros->talla </td>";
-                echo "<td> $registros->color </td>";
-                echo "<td> $registros->nom_cat </td>";
-                echo "<td> $registros->prenda</td>";
-                echo "<td> $registros->genero </td>";
-                echo " <td><a href='EstasModificando.php?id=$registros->cve_prod' class='list-group-item list-group-item-action flex-column align-items-start'>
-                      <small><img src='../src/img/editar.png' alt='' width='20px'></small>
-                      </a>";
-              echo "</td>
-                    </tr>";
+                  $tabla = $query->seleccionar($cadena);
+
+                  /* foreach */
+                  echo "<table class='table table-hover align='left'>
+                  <thead class='table-dark'>
+                  <tr>
+                  <th> ID_Producto</th>
+                  <th> Imagen</th>
+                  <th> Producto</th>
+                  <th> Precio</th>
+                  <th> Existencias</th>
+                  <th> Talla</th>
+                  <th> Color</th>
+                  <th> Categoria</th>
+                  <th> Tipo_Prenda</th>
+                  <th> Genero</th>
+                  <th> Modificar</th>
+                  </tr>
+                  </thead>
+                  <tbody>";
+
+                  foreach($tabla as $registros)
+                  {
+                    
+                    echo "<tr>";
+                    echo "<td> $registros->cve_prod</td>";
+                    echo "<td><img src='<?=../views/scripts/$registros->imagen?>'></td>";
+                    echo "<td> $registros->nombre </td>";
+                    echo "<td> $registros->precio </td>";
+                    echo "<td> $registros->exitencia </td>";
+                    echo "<td> $registros->talla </td>";
+                    echo "<td> $registros->color </td>";
+                    echo "<td> $registros->nom_cat </td>";
+                    echo "<td> $registros->prenda</td>";
+                    echo "<td> $registros->genero </td>";
+                    echo " <td><a href='EstasModificando.php?id=$registros->cve_prod' class='list-group-item list-group-item-action flex-column align-items-start'>
+                          <small><img src='../src/img/editar.png' alt='' width='20px'></small>
+                          </a>";
+                  echo "</td>
+                        </tr>";
+                  }
+                  echo "</tbody>
+                  </table>";
+                  
+                }
+                else if ($refresh=true) 
+                {
+                require("../vendor/autoload.php");
+                
+                $query = new Select();
+
+                $cadena = "SELECT
+                  productos.imagen,
+                  productos.cve_prod,
+                  productos.nombre,
+                  productos.precio,
+                  productos.exitencia,
+                  productos.talla,
+                  productos.color,
+                  categoria.nom_cat,
+                  categoria_prenda.prenda,
+                  genero.genero
+                  FROM productos
+                  INNER JOIN categoria ON productos.categoria = categoria.cve_cat
+                  INNER JOIN categoria_prenda ON productos.categoria_prenda = categoria_prenda.cve_pcat
+                  INNER JOIN genero ON productos.genero = genero.cve_gen";
+
+                $tabla = $query->seleccionar($cadena);
+
+                /* foreach */
+                echo "<table class='table table-hover align='left'>
+                <thead class='table-dark'>
+                <tr>
+                <th> ID_Producto</th>
+                <th> Imagen</th>
+                <th> Producto</th>
+                <th> Precio</th>
+                <th> Existencias</th>
+                <th> Talla</th>
+                <th> Color</th>
+                <th> Categoria</th>
+                <th> Tipo_Prenda</th>
+                <th> Genero</th>
+                <th> Modificar</th>
+                </tr>
+                </thead>
+                <tbody>";
+
+                foreach($tabla as $registros)
+                {
+                
+                  echo "<tr>";
+                  echo "<td> $registros->cve_prod</td>";
+                  echo "<td><img src='<?=views/scripts/$registros->imagen?>'></td>";
+                  echo "<td> $registros->nombre </td>";
+                  echo "<td> $registros->precio </td>";
+                  echo "<td> $registros->exitencia </td>";
+                  echo "<td> $registros->talla </td>";
+                  echo "<td> $registros->color </td>";
+                  echo "<td> $registros->nom_cat </td>";
+                  echo "<td> $registros->prenda</td>";
+                  echo "<td> $registros->genero </td>";
+                  echo " <td><a href='EstasModificando.php?id=$registros->cve_prod' class='list-group-item list-group-item-action flex-column align-items-start'>
+                        <small><img src='../src/img/editar.png' alt='' width='20px'></small>
+                        </a>";
+                echo "</td>
+                      </tr>";
+                }
+                echo "</tbody>
+                </table>";
               }
-              echo "</tbody>
-              </table>";
-              ?>
+
+                  
+                ?>              
                 </div>
             </div>
-
+<?php
+}
+?>
                 
               <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
