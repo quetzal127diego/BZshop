@@ -33,7 +33,7 @@
         background: -moz-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
         background: -webkit-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
         background: linear-gradient(to bottom, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);;
-		background-size: 100vw 100vh;
+		background-size: 10000vw 10000vh;
 		background-repeat: no-repeat;
     }
     .clr-blanco
@@ -45,6 +45,11 @@
         border: border-solid;
         border-color:black;
         border-radius:5px;
+    }
+    .sizeimg
+    {
+      width:100px;
+      height:100px;
     }
 
     </style>
@@ -109,7 +114,7 @@
               {
                 echo "<tr>";
                 echo "<td> $registros->cve_prod</td>";
-                echo "<td> $registros->imagen </td>";
+                echo "<td> <img class='sizeimg' src='../views/scripts/$registros->imagen'></td>";
                 echo "<td> $registros->nombre </td>";
                 echo "<td> $registros->precio </td>";
                 echo "<td> $registros->exitencia </td>";

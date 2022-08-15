@@ -5,8 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="views/cards.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
@@ -23,7 +22,7 @@
         background: -moz-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
         background: -webkit-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
         background: linear-gradient(to bottom, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);;
-		background-size: 100vw 100vh;
+		background-size: 1000vw 1000vh;
 		background-repeat: no-repeat;
 	}
     
@@ -52,8 +51,13 @@
     }
     .sizeimg
     {
-      width:350px;
-      height:350px;
+      width:150px;
+      height:150px;
+    }
+    .cont_prod
+    {
+      display: inline-block;
+      width: 90%;
     }
     </style>
   </head>
@@ -104,6 +108,7 @@
           </ul>
         </li>
       </ul>
+      
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Buscar</button>
@@ -117,29 +122,32 @@
       $cadena = "SELECT imagen,nombre,precio,exitencia,categoria FROM productos";
 
       $card = $query->seleccionar($cadena);
-
-      foreach($card as $registros)
-              {
-                echo "<div class='container mt-3'>
-                        <div class='row'>
-
-                          <div class='col-12'>
-
-                            <div class='card col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4'>
-                              
-                                <h4 class='card-title'>$registros->nombre</h4>";
-                                  echo "<img class='sizeimg' src='views/scripts/$registros->imagen'>";
-                                  echo "<p class='card-text'> $registros->precio </p>";
-                                  echo "<p class='card-text'> $registros->exitencia</p>";
-                                  echo "<p class='card-text'> $registros->categoria </p>";
-                                  echo " <a href='' class='btn btn-primary'>Ver Producto</a>
-                                    </div>
-                                  </div>
-                              </div>
-                          </div>";     
-            
-              }
     ?>
+
+    <div class="title-cards">
+		<h2>Algunos de nuestros Productos</h2>
+	</div>
+  
+  <div class="row">
+  <?php
+  foreach ($card as $registros){
+  ?>
+<div class="container-card col-lg-4">
+<div class="card ">
+	<figure>
+		<?php echo "<img src='views/scripts/$registros->imagen'>";?>
+	</figure>
+	<div class="contenido-card">
+		<h3><?php echo $registros->nombre ?></h3>
+		<p><?php echo $registros->precio?></p>
+    <p><?php echo $registros->exitencia?></p>
+    <p><?php echo $registros->categoria?></p>
+		<a href="#">Leer Màs</a>
+	</div>
+  </div>
+</div>
+<?php } ?>
+</div>
             
 
 
